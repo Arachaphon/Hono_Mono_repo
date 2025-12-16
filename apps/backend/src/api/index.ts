@@ -26,9 +26,9 @@ api.get('/users',
             }
         }
     }),
-    (c) => {
+    async (c) => {
 
-        let data = userService.findAllUser();
+        let data = await userService.findAllUser();
         return c.json({"message": "Get User List", data: data})
     })
 

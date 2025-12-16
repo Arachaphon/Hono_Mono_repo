@@ -5,3 +5,13 @@ export interface IUser {
     password: string
 }
 export interface IUserEntity extends Partial<IUser> {}
+
+export interface IProduct {
+    id: number
+    code: number
+    product_name : string
+    cost: number
+    created_at: string
+    is_publish: string
+}
+export interface IProductEntity extends Partial<IProduct> { }
