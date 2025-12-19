@@ -13,9 +13,11 @@ export const CreateUserRequest = z.object({
 type CreateProductRequestType = Partial<Record<keyof IProduct, unknown>> | { password_confirmation: string }
 
 export const CreateProductRequest = z.object({
-    username: z.string().min(3).max(50),
-    password: z.string().min(6),
-    password_confirmation: z.string(),
-    email: z.email(),
-} as CreateUserRequestType)
+    id: z.number(),
+    code: z.number(),
+    product_name : z.string().min(3).max(50),
+    cost: z.number(),
+    created_at: z.string(),
+    is_publish: z.string(),
+} as CreateProductRequestType)
 

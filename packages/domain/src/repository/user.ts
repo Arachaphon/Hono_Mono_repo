@@ -18,19 +18,22 @@ export interface IUserRepository {
 
 }
 
-export interface productRepository {
+export interface    IProductRepository {
 
     // Read
     findAll(): Promise<IProductEntity[]>
     findById(id: number): Promise<IProductEntity>
+    findByCode(code: string): Promise<IProductEntity>
 
     // Create
-    create(product: IProduct): Promise<IProductEntity>
+    create(product: Partial<IProduct>): Promise<IProductEntity>
 
     // Update
-    update(id: number, product: Partial<IProductEntity>): Promise<IProductEntity>
+    update(id: number, product: Partial<IProduct>): Promise<IProductEntity>
 
     // Delete
     delete(id: number): Promise<boolean>
+    
+    isUsed(id:number): Promise<boolean>
 
 }

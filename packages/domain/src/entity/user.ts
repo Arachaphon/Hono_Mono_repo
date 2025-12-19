@@ -8,10 +8,11 @@ export interface IUserEntity extends Partial<IUser> {}
 
 export interface IProduct {
     id: number
-    code: number
+    code: string
     product_name : string
     cost: number
     created_at: string
-    is_publish: string
+    update_at : string
+    is_publish: boolean
 }
 export interface IProductEntity extends Partial<IProduct> { }

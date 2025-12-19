@@ -17,16 +17,18 @@ export const UserSchema = z.object({
 export const UserResponseSchema = createResponseSchema(UserSchema)
 export const UserListResponseSchema = createResponseSchema(z.array(UserSchema))
 
-export interface productDto extends Omit<IProductEntity,"code"> {}
-export interface productCreateDto extends Omit<IProductEntity, "id"> { }
-export interface productUpdateDto extends IProductEntity { }
+export interface ProductDto extends IProductEntity {}
+export interface ProductCreateDto extends Omit<IProductEntity, "id"> { }
+export interface ProductUpdateDto extends IProductEntity { }
 
 export const ProductSchema = z.object({
-    id: z.number().optional(),
-    product_name: z.string().optional(),
-    cost: z.number().optional(),
-    created_at: z.string().optional(),
-    is_publish: z.string().optional(),
+    id: z.number(),
+    code: z.string(),
+    product_name: z.string(),
+    cost: z.number().min(1),
+    created_at: z.date(),
+    update_at: z.date(),
+    is_publish: z.boolean().default(true),
 } as Record<keyof IProductEntity, any>)
 
 export const productResponseSchema = createResponseSchema(ProductSchema)
